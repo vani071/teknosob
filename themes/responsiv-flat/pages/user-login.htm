@@ -1,6 +1,6 @@
-title = "login"
-url = "/user-login"
-layout = "TeknosobLayout"
+title = "Account"
+url = "/account/:code?"
+layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
@@ -8,6 +8,10 @@ robot_follow = "follow"
 [account]
 paramCode = "code"
 forceSecure = 0
+
+[session]
+security = "all"
+
 ==
 {% component 'account' %}
 
