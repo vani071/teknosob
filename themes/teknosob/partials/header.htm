@@ -1,15 +1,56 @@
 ==
-<!-- Search Form -->
-            <form class="">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control border-0 background-secondary-color" placeholder="Search"
-                        name="searchkey" aria-label="Search"
-                        style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px;" autocomplete="off">
-                    <div class="input-group-append">
-                        <button class="link-secondary-color text-decoration-none btn btn-link background-secondary-color"
-                            style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
+<?php
+function onStart(){
+/**
+ * Main Menu List
+ */
+$this['main_menu'] = array(
+    array('BERITA', '<i class="far fa-newspaper"></i>', '/'),
+    array('IDEA', '<i class="fas fa-shapes"></i>', '/idea'),
+    array('TUTORIAL', '<i class="fas fa-book-open"></i>', '/tutorial'),
+    array('HIBURAN', '<i class="fas fa-puzzle-piece"></i>', '/hiburan'),
+    array('REVIEW', '<i class="fas fa-file-signature"></i>', '/review')
+    );
+}
+?>
+==
+<header class="py-5">
+
+    <!-- Header Logo -->
+    <div class="text-center">
+        <a href="/" class="text-reset text-decoration-none">
+            <img class="col-10 mx-auto py-3" src="{{ "assets/banner.png"|theme }}" alt="" />
+        </a>
+    </div>
+
+    <!-- Search Form -->
+    <form class="">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control border-0 background-secondary-color input-custom" placeholder="Search"
+                name="searchkey" aria-label="Search"
+                style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px;" autocomplete="off">
+            <div class="input-group-append">
+                <button class="link-secondary-color text-decoration-none btn btn-link background-secondary-color"
+                    style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Main Navigation -->
+    <div class="horizontal-scroll" id="top">
+        <ul class="list-inline">
+            <h1>
+                {% for menu in main_menu %}
+                <li class="list-inline-item px-1 text-center">
+                    <a href="{{ menu['2'] }}" class="text-decoration-none link-secondary-color">
+                        {{ menu['1']|raw }}<br/><h6>{{ menu['0'] }}</h6>
+                    </a>
+                </li>
+                {% endfor %}
+            </h1>
+        </ul>
+    </div>
+
+</header>

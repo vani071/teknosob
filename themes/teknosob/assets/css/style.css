@@ -1,0 +1,35 @@
+
+.horizontal-scroll {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.background-primary-color {
+    background-color: #202125;
+}
+
+.background-secondary-color {
+    background-color: #2A2B2F;
+}
+
+.text-primary-color {
+    color: #BDC3C7;
+}
+
+.link-secondary-color {
+    color: #4BCFFA;
+}
+
+/* input[type=text]:focus, */
+.input-custom:focus,
+.input-custom.active {
+    background-color: #2A2B2F;
+    color: #BDC3C7;
+    outline: 0px !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+}
