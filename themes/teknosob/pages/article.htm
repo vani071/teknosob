@@ -1,0 +1,67 @@
+title = "article"
+url = "/article/:slug"
+layout = "Teknosob"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "category"
+==
+{% set post = blogPost.post %}
+
+<ul class="list-inline">
+  
+  <!-- Menampilkan Category -->
+  <li class="list-inline-item"><h6>
+    {% if post.categories.count %}
+        {% for category in post.categories %}
+            <a class=" text-decoration-none link-secondary-color" href="{{ category.url }}">{{ category.name|capitalize }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    {% endif %}
+  </h6></li>
+  
+  <!-- Menampilkan tanggal content di post -->
+  <li class="list-inline-item float-right"><p>{{ post.published_at|date('l, d F Y') }}</p></li>
+</ul>
+
+<!-- Post Title -->
+<h1 class="text-center p-5">{{ post.title }}</h1>
+
+<!-- Featured Image -->
+{% if post.featured_images.count %}
+    <div class="featured-images text-center">
+    
+        <!-- Apabila Featured Image lebih dari satu -->
+        {% for image in post.featured_images %}
+                <img
+                    data-src="{{ image.filename }}"
+                    src="{{ image.path }}"
+                    alt="{{ image.description }}"
+                    style="max-width: 100%" />
+        {% endfor %}
+    </div>
+{% endif %}
+
+<!-- Post Quote -->
+<blockquote class="blockquote">
+    <h6 class="py-3 pl-5 small">{{ post.summary }}</h6>
+</blockquote>
+
+<!-- Post Content -->
+<div class="content text-justify">{{ post.content_html|raw }}</div>
+
+<!-- Post Tags -->
+<ul class="list-inline p-3 text-center">  
+  <!-- Menampilkan Tag -->
+    {% if post.tags.count %}
+        {% for tag in post.tags %}
+          <li class="list-inline-item p-1">
+            <a class="text-reset text-decoration-none" href="{{ tag.slug }}">
+                <span class="px-1 bg-dark">#</span><span class="pl-1 pr-2 background-secondary-color">{{ tag.name }}</span>
+            </a>
+          </li>
+        {% endfor %}
+    {% endif %}
+</ul>
