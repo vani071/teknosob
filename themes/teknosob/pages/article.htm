@@ -27,7 +27,7 @@ categoryPage = "category"
 </ul>
 
 <!-- Post Title -->
-<h1 class="text-center p-5">{{ post.title }}</h1>
+<h1 class="text-center py-5 px-3">{{ post.title }}</h1>
 
 <!-- Featured Image -->
 {% if post.featured_images.count %}
@@ -38,7 +38,7 @@ categoryPage = "category"
                 <img
                     data-src="{{ image.filename }}"
                     src="{{ image.path }}"
-                    alt="{{ image.description }}"
+                    alt="{{ image.description|title }}"
                     style="max-width: 100%" />
         {% endfor %}
     </div>
@@ -59,7 +59,7 @@ categoryPage = "category"
         {% for tag in post.tags %}
           <li class="list-inline-item p-1">
             <a class="text-reset text-decoration-none" href="{{ tag.slug }}">
-                <span class="px-1 bg-dark">#</span><span class="pl-1 pr-2 background-secondary-color">{{ tag.name }}</span>
+                <span class="px-1 bg-dark">#</span><span class="pl-1 pr-2 background-secondary-color">{{ tag.name|capitalize }}</span>
             </a>
           </li>
         {% endfor %}
