@@ -33,3 +33,13 @@
     -webkit-appearance: none;
     box-shadow: none !important;
 }
+
+.btn.btn-default{
+    background-color:#4BCFFA;
+    color:#000;
+    border:none;
+}
+
+#login-page .col-md-6{
+    margin-bottom:40px ;
+}

@@ -1,0 +1,21 @@
+title = "User Login"
+url = "/user-login/:code?"
+layout = "Teknosob"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[account]
+paramCode = "code"
+forceSecure = 0
+==
+<div id="login-page">
+    {% component 'account' %}
+</div>
+
+{% if user %}
+    <a data-request="onLogout" data-request-data="redirect: '/'">Sign out</a>
+{% else %}
+
+{% endif %}
+
