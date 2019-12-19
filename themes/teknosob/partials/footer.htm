@@ -1,2 +1,53 @@
 ==
-<h6><i class="far fa-copyright"></i> TEKNOSOB. 2019. </h6>
+<?php
+function onStart(){
+/**
+ * Footer Social Menu List
+ */
+$this['footer_social_menu'] = array(
+        array('twitter', '<i class="fab fa-twitter"></i>', 'https://twitter.com/TeknoSob'),
+        array('facebook', '<i class="fab fa-facebook-f"></i>', 'https://web.facebook.com/teknosob-113452350110435/'),
+        array('instagram', '<i class="fab fa-instagram"></i>', 'https://www.instagram.com/teknosob/'),
+        array('youtube', '<i class="fab fa-youtube"></i>', '#')
+    );
+    
+/**
+ * Footer Menu List
+ */
+$this['footer_menu'] = array(
+        array('Login', '/user/login'),
+        array('Subscribe', '/subscribe'),
+        array('Join with us', '/carrer/join-with-us'),
+        array('Contact us', '/contact-us'),
+        array('About', '/about')
+    );
+
+/**
+ * Footer Year Copyright
+ */
+$this['tahun'] = date('Y');
+}
+?>
+==
+<footer class="text-center py-5">
+
+    <!-- Footer Social-->
+    <ul class="list-inline">
+        <h1>
+            {% for menu in footer_social_menu %}
+            <li class="list-inline-item p-2"><a href="{{ menu['2'] }}" class="link-secondary-color text-decoration-none">{{ menu['1']|raw }}</a></li>
+            {% endfor %}
+        </h1>
+    </ul>
+
+    <!-- Footer Menu -->
+    <ul class="list-inline">
+        {% for menu in footer_menu %}
+        <li class="list-inline-item p-2"><a href="{{ menu['1'] }}"
+                class="text-reset text-decoration-none">{{ menu['0'] }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <!-- Footer Copyright -->
+    <h6><i class="far fa-copyright"></i> TEKNOSOB. {{ tahun }}. </h6>
+</footer>
