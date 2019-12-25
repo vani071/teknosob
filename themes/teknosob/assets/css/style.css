@@ -43,3 +43,10 @@
 #login-page .col-md-6{
     margin-bottom:40px ;
 }
+.carousel-inner {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    min-height: 200px;;
+}
