@@ -1,0 +1,23 @@
+==
+<?php
+function onStart(){
+/**
+ * Social Sharing Article
+ */
+$this['sharing'] = array(
+        array('twitter', '<i class="fab fa-twitter"></i>', '#'),
+        array('facebook', '<i class="fab fa-facebook-f"></i>', '#'),
+        array('instagram', '<i class="fab fa-instagram"></i>', '#'),
+        array('youtube', '<i class="fab fa-youtube"></i>', '#')
+    );
+}
+?>
+==
+<!-- Social Sharing Article -->
+<ul class="list-inline text-center">
+    <h1>
+        {% for share in sharing %}
+        <li class="list-inline-item p-2"><a href="{{ share['2'] }}" class="link-secondary-color text-decoration-none">{{ share['1']|raw }}</a></li>
+        {% endfor %}
+    </h1>
+</ul>
