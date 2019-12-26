@@ -1,6 +1,17 @@
 [session]
 security = "all"
 ==
+<?php
+function onStart()
+{
+    $this->addCss('assets/css/style.css');
+    $this->addCss('assets/css/link.css');
+    $this->addCss('assets/css/input.css');
+    $this->addCss('assets/css/text.css');
+    $this->addCss('assets/css/background.css');
+}
+?>
+==
 {% component 'session' %}
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +35,6 @@ security = "all"
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     {%styles%}
-
-    <!-- Internal resource -->
-    <link rel="stylesheet" href="{{ "assets/css/style.css"|theme }}" />
 
 </head>
 <body class="background-primary-color text-primary-color">

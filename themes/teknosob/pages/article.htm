@@ -7,7 +7,7 @@ robot_follow = "follow"
 
 [blogPost]
 slug = "{{ :slug }}"
-categoryPage = "{{ :slug }}"
+categoryPage = "category"
 
 [views]
 slug = "{{ :slug }}"
@@ -43,8 +43,6 @@ slug = "{{ :slug }}"
                     src="{{ image.path }}"
                     alt="{{ image.description|title }}" />
         {% endfor %}
-        
-        
         
     </div>
 {% endif %}
