@@ -1,0 +1,46 @@
+title = "Search result"
+url = "/search/:search?/:page?"
+layout = "Teknosob"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[searchResult]
+searchTerm = "{{ :search }}"
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+==
+{% set posts = searchResult.posts %}
+
+<h2>{{ 'Search Results for:'|_ }} {{ searchResult.searchTerm }}</h2>
+
+<ul class="post-list">
+    {% for post in posts %}
+    <li>
+        <h3><a href="{{ post.slug }}">{{ post.title|raw }}</a></h3>
+
+        <p class="info">
+            {{ 'Posted'|_ }}
+            {% if post.categories.count %} {{ 'in'|_ }} {% endif %}
+            {% for category in post.categories %}
+            <a href="{{ category.slug }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            {{ 'on'|_ }} {{ post.published_at|date('M d, Y') }}
+        </p>
+
+        {% if post.excerpt %}
+        <p class="excerpt">{{ post.excerpt|raw }}</p>
+        {% else %}
+        <div class="content">{{ post.content_html|raw }}</div>
+        {% endif %}
+    </li>
+    {% else %}
+    <li class="no-data">{{ noPostsMessage }}</li>
+    {% endfor %}
+</ul>
+
+{% partial searchResult~"::pagination" posts=posts %}
