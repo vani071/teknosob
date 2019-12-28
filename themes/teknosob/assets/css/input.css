@@ -1,0 +1,9 @@
+/* Search form */
+.input-custom:focus,
+.input-custom.active {
+    background-color: #2A2B2F;
+    color: #BDC3C7;
+    outline: 0px !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+}

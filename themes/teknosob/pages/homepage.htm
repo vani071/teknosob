@@ -7,14 +7,14 @@ robot_index = "index"
 robot_follow = "follow"
 
 [slider]
-slide_show_id = 1
 
 [blogPosts]
 pageNumber = "{{ :page }}"
-postsPerPage = 1
+categoryFilter = "{{ :slug }}"
+postsPerPage = 3
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
-categoryPage = "article"
+categoryPage = "cat"
 postPage = "article"
 ==
 <div class="carousel-inner">

@@ -20,7 +20,7 @@ slug = "{{ :slug }}"
   <li class="list-inline-item"><h6>
     {% if post.categories.count %}
         {% for category in post.categories %}
-            <a class=" text-decoration-none link-secondary-color" href="{{ category.url }}">{{ category.name|capitalize }}</a>{% if not loop.last %}, {% endif %}
+            <a class=" text-decoration-none link-secondary-color" href="{{ category.slug }}">{{ category.name|capitalize }}</a>{% if not loop.last %}, {% endif %}
         {% endfor %}
     {% endif %}
   </h6></li>
@@ -38,11 +38,12 @@ slug = "{{ :slug }}"
     
         <!-- Apabila Featured Image lebih dari satu -->
         {% for image in post.featured_images %}
-                <img class="p-1"
+                <img class="p-1 img-thumbnail"
                     data-src="{{ image.filename }}"
                     src="{{ image.path }}"
                     alt="{{ image.description|title }}" />
         {% endfor %}
+        
     </div>
 {% endif %}
 
@@ -67,3 +68,9 @@ slug = "{{ :slug }}"
         {% endfor %}
     </ul>
 {% endif %}
+
+{% set post = views.post %}
+
+<div class="py-1">Dilihat: {{ views }} kali</div>
+
+{% partial 'social-sharing-button' %}
