@@ -1,0 +1,24 @@
+[ssbuttons]
+fa = "maxcdn"
+twitter = 1
+facebook = 1
+google+ = 0
+stumbleupon = 0
+linkedin = 1
+order_twitter = 1
+order_facebook = 2
+order_google+ = 3
+order_stumbleupon = 4
+order_linkedin = 5
+==
+<div class="SocialSharingButtons text-left">
+    {% for button in ssbuttons.property('buttons_order') %}
+        {% if(ssbuttons.property(button)) %}
+            <a href="{{ ssbuttons.property('buttons_parameters')[button]['href'] }}" title="{{ ssbuttons.property('buttons_parameters')[button]['title'] }}" target="_blank" class="{{ ssbuttons.property('buttons_parameters')[button]['class']['ssbuttons'] }}"><i class="{{ ssbuttons.property('buttons_parameters')[button]['icon'] }}"></i>&nbsp;&nbsp;{{ ssbuttons.property('buttons_parameters')[button]['label'] }}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% if ssbuttons.property('js') %}
+    <script src="/plugins/martin/ssbuttons/assets/js/ssbuttons.js"></script>
+{% endif %}

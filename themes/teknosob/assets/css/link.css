@@ -1,0 +1,25 @@
+/* unvisited link */
+a:link {
+  color: #4BCFFA;
+}
+
+/* visited link */
+a:visited {
+  color: #4BCFFA;
+}
+
+/* mouse over link */
+a:hover {
+  color: blue;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+/* bootstrap override */
+.btn-link {
+  color: #4BCFFA;
+}
+    
