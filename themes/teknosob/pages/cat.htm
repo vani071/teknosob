@@ -1,5 +1,5 @@
-title = "cat"
-url = "/cat/:slug/:page?"
+title = "Category"
+url = "/category/:slug/:page?"
 layout = "Teknosob-temp"
 is_hidden = 0
 robot_index = "index"
@@ -14,7 +14,14 @@ sortOrder = "published_at desc"
 categoryPage = "cat"
 postPage = "article"
 ==
-<!-- {% component 'blogPosts' %} -->
+<?php
+function onEnd()
+{
+    if ($this->category)
+    $this->page->meta_title = $this->category->name.' terkini - Teknosob.com';
+}
+?>
+==
 
 {% set posts = blogPosts.posts %}
 
@@ -35,7 +42,6 @@ postPage = "article"
                 <!-- on  -->
                 {{ post.published_at|date(' d M Y') }}
             </p>
-
             <p class="excerpt">{{ post.summary|raw }}</p>
         </li>
     {% else %}
