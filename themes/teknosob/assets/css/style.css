@@ -27,3 +27,19 @@
 #countdown{
     color:#4BCFFA;
 }
+
+.post-list-custom .cp-thumb img{
+    width: 100%;
+}
+
+.post-list-custom .list-group-item{
+    background-color:rgba(0, 0, 0, 0);
+}
+
+.post-list-custom .list-group-item h4 a{
+    color:#fff;
+}
+
+.post-list-custom .list-group-item .info{
+    text-align: right;
+}
