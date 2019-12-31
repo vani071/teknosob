@@ -25,11 +25,11 @@ $this['main_menu'] = array(
             <img class="col-10 mx-auto py-3" src="{{ "assets/banner.png"|theme }}" alt="" />
         </a>
     </div>
-    
-    <form class="form-inline" method="GET" action="{{ searchForm.resultPage|page }}">
+
+    <form class="" method="GET" action="{{ searchForm.resultPage|page }}">
         <div class="input-group mb-3">
             <input type="text" name="search" class="form-control border-0 background-secondary-color input-custom" placeholder ="Search" name="searchkey" aria-label="Search" style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px;" autocomplete="off" >
-        
+
             {% if searchForm.categoryFilter %}
                 <select name="cat[]" class="form-control">
                 {% for key,cat in searchForm.categories %}

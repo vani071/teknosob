@@ -38,11 +38,43 @@
 
 .post-list-custom .list-group-item h4 a{
     color:#fff;
+    font-size:16px;
 }
 
 .post-list-custom .list-group-item .info{
     text-align: right;
 }
+
+.main-slider .slider-item{
+    position: relative;
+}
+
+.main-slider .slider-item img{
+    width: 100%;
+}
+.main-slider .slider-item div{
+    width:100%;
+}
+
+.main-slider .slider-item .title{
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+}
+.main-slider .slider-item .title h4{
+    font-size:19px;
+    color: #0984e3;
+}
+.main-slider .slider-item .title h4 a{
+    color: #0984e3;
+}
+
+.main-slider .slider-item .title p a{
+    color:#4BCFFA;
+}
+
 
 
 @media (min-width: 1200px){

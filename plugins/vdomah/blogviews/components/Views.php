@@ -48,7 +48,7 @@ class Views extends ComponentBase
     {
         $out = 0;
         $post = $this->loadPost();
-        
+
         if(!is_null($post)) {
             $obj = Db::table('vdomah_blogviews_views')
                 ->where('post_id', $post->getKey());
@@ -57,7 +57,7 @@ class Views extends ComponentBase
                 $out = $obj->first()->views;
             }
         }
-        
+
         return $out;
     }
 }
