@@ -27,7 +27,7 @@
 
             <input name="post_id" type="hidden" value="{{__SELF__.post_id}}">
 
-            {% if (__SELF__.settings.recaptcha_enabled) %}  
+            {% if (__SELF__.settings.recaptcha_enabled) %}
             <div class="g-recaptcha" data-sitekey="{{ __SELF__.settings.site_key }}"></div>
             <br>
             {% endif %}
