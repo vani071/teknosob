@@ -1,3 +1,6 @@
+[searchForm]
+resultPage = "search-result"
+categoryFilter = 0
 ==
 <?php
 function onStart(){
@@ -22,9 +25,26 @@ $this['main_menu'] = array(
             <img class="col-10 mx-auto py-3" src="{{ "assets/banner.png"|theme }}" alt="" />
         </a>
     </div>
+    
+    <form class="form-inline" method="GET" action="{{ searchForm.resultPage|page }}">
+        <div class="input-group mb-3">
+            <input type="text" name="search" class="form-control border-0 background-secondary-color input-custom" placeholder ="Search" name="searchkey" aria-label="Search" style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px;" autocomplete="off" >
+        
+            {% if searchForm.categoryFilter %}
+                <select name="cat[]" class="form-control">
+                {% for key,cat in searchForm.categories %}
+                    <option value="{{ key }}">{{ cat }}</option>
+                {% endfor %}
+                </select>
+            {% endif %}
+            <div class="input-group-append">
+                <button class="btn btn-link background-secondary-color" style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </form>
 
     <!-- Search Form -->
-    <form class="">
+    <!-- <form class="">
         <div class="input-group mb-3">
             <input type="text" class="form-control border-0 background-secondary-color input-custom" placeholder ="Search" name="searchkey" aria-label="Search" style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px;" autocomplete="off" />
             <div class="input-group-append">
@@ -33,7 +53,7 @@ $this['main_menu'] = array(
                 </button>
             </div>
         </div>
-    </form>
+    </form> -->
 
     <!-- Main Navigation -->
     <div class="horizontal-scroll" id="top">
