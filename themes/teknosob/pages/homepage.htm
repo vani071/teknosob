@@ -17,9 +17,8 @@ sortOrder = "published_at desc"
 categoryPage = "cat"
 postPage = "article"
 ==
-<div class="carousel-inner">
-    {% component 'slider' %}
-</div>
+{% partial "main-slider" %}
+
 {% set posts = blogPosts.posts %}
 
 <ul class="list-group post-list-custom">

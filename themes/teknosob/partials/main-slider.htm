@@ -1,0 +1,76 @@
+description = "slider in homepage and category page"
+==
+<?php
+
+function onStart()
+{
+    $posts = Db::table('rainlab_blog_posts')
+    ->join('vdomah_blogviews_views', 'rainlab_blog_posts.id', '=', 'vdomah_blogviews_views.post_id')
+    ->select('rainlab_blog_posts.id')
+    ->orderBy('vdomah_blogviews_views.views', 'desc')->get();
+
+    $post_id = [];
+
+    foreach ($posts as $post) {
+        $post_id[] = $post->id;
+    }
+
+    $dataPost = \Rainlab\Blog\Models\Post::isPublished()->find($post_id);
+
+   $this['postses'] = $dataPost;
+}
+
+?>
+==
+<div class="carousel-inner">
+
+    <!-- {{ dump(hello) }} -->
+    <!-- <ul class="list-group post-list-custom"> -->
+    <div class="main-slider">
+
+    {% for post in postses %}
+        <!-- <li class="list-group-item">
+            {% for image in post.featured_images|slice(0,1) %}
+                <div class="cp-thumb" onclick="location.href = '{{ post.url }}';"><img src="{{image.path}}" alt=""></div>
+            {% endfor %}
+            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4> -->
+
+            <!-- <p class="info"> -->
+                <!-- Posted -->
+                <!-- {% if post.categories.count %} in {% endif %} -->
+                <!-- {% for category in post.categories %} -->
+                    <!-- <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %} -->
+                <!-- {% endfor %} -->
+                <!-- on  -->
+                <!-- {{ post.published_at|date(' d M Y') }} -->
+            <!-- </p> -->
+
+            <!-- <p class="excerpt">{{ post.summary|raw }}</p> -->
+        <!-- </li> -->
+        <div class="slider-item">
+            {% for image in post.featured_images|slice(0,1) %}
+                <div class="thumb" onclick="location.href = '{{ post.url }}';"><img src="{{image.path}}" alt=""></div>
+            {% endfor %}
+            <div class="title"><h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+                <p>  {% if post.categories.count %}{% endif %}
+                    {% for category in post.categories %}
+                        <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    <!-- </ul> -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    jQuery('.main-slider').slick({
+        slidesToShow: 1,
+        dots: true,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+      });
+    });
+</script>
