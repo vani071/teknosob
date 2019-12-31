@@ -15,7 +15,7 @@ slug = "{{ :slug }}"
 {% set post = blogPost.post %}
 
 <ul class="list-inline">
-  
+
   <!-- Menampilkan Category -->
   <li class="list-inline-item"><h6>
     {% if post.categories.count %}
@@ -24,7 +24,7 @@ slug = "{{ :slug }}"
         {% endfor %}
     {% endif %}
   </h6></li>
-  
+
   <!-- Menampilkan tanggal content di post -->
   <li class="list-inline-item float-right"><p>{{ post.published_at|date('l, d F Y') }}</p></li>
 </ul>
@@ -35,7 +35,7 @@ slug = "{{ :slug }}"
 <!-- Featured Image -->
 {% if post.featured_images.count %}
     <div class="featured-images text-center">
-    
+
         <!-- Apabila Featured Image lebih dari satu -->
         {% for image in post.featured_images %}
                 <img class="p-1 img-thumbnail"
@@ -43,7 +43,7 @@ slug = "{{ :slug }}"
                     src="{{ image.path }}"
                     alt="{{ image.description|title }}" />
         {% endfor %}
-        
+
     </div>
 {% endif %}
 
@@ -57,7 +57,7 @@ slug = "{{ :slug }}"
 
 <!-- Post Tags -->
 {% if post.tags.count %}
-    <ul class="list-inline p-3 text-center">  
+    <ul class="list-inline p-3 text-center">
         <!-- Menampilkan Tag -->
         {% for tag in post.tags %}
             <li class="list-inline-item p-1">
@@ -74,3 +74,13 @@ slug = "{{ :slug }}"
 <div class="py-1">Dilihat: {{ views }} kali</div>
 
 {% partial 'social-sharing-button' %}
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
