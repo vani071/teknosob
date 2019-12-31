@@ -1,7 +1,6 @@
 description = "slider in homepage and category page"
 ==
 <?php
-
 function onStart()
 {
     $posts = Db::table('rainlab_blog_posts')
@@ -19,7 +18,6 @@ function onStart()
 
    $this['postses'] = $dataPost;
 }
-
 ?>
 ==
 <div class="carousel-inner">
@@ -71,6 +69,7 @@ function onStart()
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        adaptiveHeight: false,
       });
     });
 </script>
