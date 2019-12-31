@@ -18,11 +18,10 @@ postPage = "article"
 function onEnd()
 {
     if ($this->category)
-    $this->page->meta_title = $this->category->name.' terkini - Teknosob.com';
+        $this->page->meta_title = $this->category->name.' terkini - Teknosob.com';
 }
 ?>
 ==
-
 {% set posts = blogPosts.posts %}
 
 <ul class="list-group post-list-custom">
