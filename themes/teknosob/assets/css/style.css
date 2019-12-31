@@ -43,3 +43,11 @@
 .post-list-custom .list-group-item .info{
     text-align: right;
 }
+
+
+@media (min-width: 1200px){
+    /* force to mobile */
+    .container{
+        width:437px !important;
+    }
+}
