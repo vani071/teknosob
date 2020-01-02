@@ -21,9 +21,9 @@ postPage = "article"
 
 {% set posts = blogPosts.posts %}
 
-<ul class="list-group post-list-custom">
+<ul class="list-group post-list-custom pagination-container">
     {% for post in posts %}
-        <li class="list-group-item border-0">
+        <li class="list-group-item border-0 pagination-data">
             {% for image in post.featured_images|slice(0,1) %}
                 <div class="cp-thumb" onclick="location.href = '{{ post.url }}';"><img src="{{image.path}}" alt=""></div>
             {% endfor %}
@@ -46,24 +46,24 @@ postPage = "article"
     {% endfor %}
 </ul>
 
-{% if posts.lastPage > 1 %}
-  <ul class="page pagination justify-content-center pt-5 pb-3">
-        {% if posts.currentPage > 1 %}
-            <li class="page-item">
-                <a class="page-link background-primary-color border-0" href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}">Previous</a>
-            </li>
-        {% endif %}
-
-        {% for page in 1..posts.lastPage %}
-            <li class="page-item {{ posts.currentPage == page ? 'active' : null }}">
-                <a class="page-link background-primary-color border-0" href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): page }) }}">{{ page }}</a>
-            </li>
-        {% endfor %}
-
-        {% if posts.lastPage > posts.currentPage %}
-            <li class="page-item">
-                <a class="page-link background-primary-color border-0" href="{{ this.page.baseFileName|page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}">Next</a>
-            </li>
-        {% endif %}
-  </ul>
-{% endif %}
+<div class="pagination">
+    <a class="pagination__next" href="./2.html">Next page</a>
+</div>
+      
+<!-- Infinite Pagination Plugin -->
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+<script>
+/**
+ * Infinite Pagination Plugin
+ */
+var elem = document.querySelector('.pagination-container');
+var infScroll = new InfiniteScroll(elem, {
+    // options
+    path: '.pagination__next',
+    append: '.pagination-data',
+    prefill: true,
+    history: false,
+    hideNav: '.pagination',
+    status: '.scroller-status',
+});
+</script>
