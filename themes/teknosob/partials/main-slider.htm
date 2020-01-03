@@ -22,34 +22,14 @@ function onStart()
 ==
 <div class="carousel-inner">
 
-    <!-- {{ dump(hello) }} -->
-    <!-- <ul class="list-group post-list-custom"> -->
     <div class="main-slider">
 
     {% for post in postses %}
-        <!-- <li class="list-group-item">
-            {% for image in post.featured_images|slice(0,1) %}
-                <div class="cp-thumb" onclick="location.href = '{{ post.url }}';"><img src="{{image.path}}" alt=""></div>
-            {% endfor %}
-            <h4><a href="{{ post.url }}">{{ post.title }}</a></h4> -->
-
-            <!-- <p class="info"> -->
-                <!-- Posted -->
-                <!-- {% if post.categories.count %} in {% endif %} -->
-                <!-- {% for category in post.categories %} -->
-                    <!-- <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %} -->
-                <!-- {% endfor %} -->
-                <!-- on  -->
-                <!-- {{ post.published_at|date(' d M Y') }} -->
-            <!-- </p> -->
-
-            <!-- <p class="excerpt">{{ post.summary|raw }}</p> -->
-        <!-- </li> -->
         <div class="slider-item">
             {% for image in post.featured_images|slice(0,1) %}
-                <div class="thumb" onclick="location.href = '{{ post.url }}';"><img src="{{image.path}}" alt=""></div>
+                <div class="thumb" onclick="location.href = '{{url('/')}}/article/{{ post.slug }}';"><img src="{{image.path}}" alt=""></div>
             {% endfor %}
-            <div class="title"><h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+            <div class="title"><h4><a href="{{url('/')}}/article/{{ post.slug }}">{{ post.title }}</a></h4>
                 <p>  {% if post.categories.count %}{% endif %}
                     {% for category in post.categories %}
                         <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
@@ -58,7 +38,6 @@ function onStart()
         </div>
     {% endfor %}
     </div>
-    <!-- </ul> -->
 </div>
 
 <script type="text/javascript">
