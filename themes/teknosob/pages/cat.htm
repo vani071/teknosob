@@ -48,10 +48,16 @@ function onEnd()
     {% endfor %}
 </ul>
 
+<ul class="list-group post-list-custom status-infinite">
+    <li class="list-group-item infinite-scroll-last"></li>
+    <li class="list-group-item infinite-scroll-request text-center" > <img src="{{ 'assets/ajax-loader.gif'|theme }}" alt="loading"></li>
+    <li class="list-group-item infinite-scroll-error text-center">Tidak ada data</li>
+</ul>
+
 <div class="pagination">
     <a class="pagination__next" href="./2.html">Next page</a>
 </div>
-      
+
 <!-- Infinite Pagination Plugin -->
 <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
 <script>
@@ -66,6 +72,6 @@ var infScroll = new InfiniteScroll(elem, {
     prefill: true,
     history: false,
     hideNav: '.pagination',
-    status: '.scroller-status',
+    status: '.status-infinite',
 });
 </script>

@@ -56,6 +56,10 @@
     width:100%;
 }
 
+.main-slider .slider-item .thumb{
+    height: 200px;
+}
+
 .main-slider .slider-item .title{
     position: absolute;
     bottom: 0;
@@ -75,11 +79,21 @@
     color:#4BCFFA;
 }
 
+.status-infinite{
+    display: none;;
+}
+
 
 
 @media (min-width: 1200px){
     /* force to mobile */
     .container{
         width:437px !important;
+    }
+}
+
+@media (min-width: 767px){
+    .main-slider .slider-item .thumb{
+        height: 400px;
     }
 }
