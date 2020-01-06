@@ -6,6 +6,7 @@ function onStart()
     $posts = Db::table('rainlab_blog_posts')
     ->join('vdomah_blogviews_views', 'rainlab_blog_posts.id', '=', 'vdomah_blogviews_views.post_id')
     ->select('rainlab_blog_posts.id')
+    ->take(5)
     ->orderBy('vdomah_blogviews_views.views', 'desc')->get();
 
     $post_id = [];
@@ -44,7 +45,7 @@ function onStart()
     $(document).ready(function(){
     jQuery('.main-slider').slick({
         slidesToShow: 1,
-        dots: true,
+        dots: false,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,

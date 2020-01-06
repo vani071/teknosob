@@ -57,12 +57,12 @@
 }
 
 .main-slider .slider-item .thumb{
-    height: 200px;
+    height: 250px;
 }
 
 .main-slider .slider-item .title{
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     z-index: 1;
     background: rgba(0, 0, 0, 0.5);
     padding: 5px;
@@ -72,7 +72,7 @@
     color: #0984e3;
 }
 .main-slider .slider-item .title h4 a{
-    color: #0984e3;
+    color: white;
 }
 
 .main-slider .slider-item .title p a{
@@ -94,6 +94,6 @@
 
 @media (min-width: 767px){
     .main-slider .slider-item .thumb{
-        height: 400px;
+        height: 300px;
     }
 }
