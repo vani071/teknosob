@@ -62,7 +62,7 @@ slug = "{{ :slug }}"
         <!-- Menampilkan Tag -->
         {% for tag in post.tags %}
             <li class="list-inline-item p-1">
-                <a class="text-reset text-decoration-none" href="{{ tag.slug }}">
+                <a class="text-decoration-none" href="{{ tag.slug }}">
                     <span class="px-1 bg-dark">#</span><span class="pl-1 pr-2 background-secondary-color">{{ tag.name|capitalize }}</span>
                 </a>
             </li>
@@ -75,6 +75,7 @@ slug = "{{ :slug }}"
 
 <div class="py-1">Dilihat: {{ views }} kali</div>
 
+Bagikan artikel:
 {% partial 'social-sharing-button' %}
 
 {% set posts = commentsPost.posts %}
