@@ -61,12 +61,14 @@ postPage = "article"
 
 <!-- Infinite Pagination Plugin -->
 <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+
 <script>
 /**
  * Infinite Pagination Plugin
  */
-var elem = document.querySelector('.pagination-container');
-var infScroll = new InfiniteScroll(elem, {
+jQuery(document).ready(function(){
+    var elem = document.querySelector('.pagination-container');
+    var infScroll = new InfiniteScroll(elem, {
     // options
     path: '.pagination__next',
     append: '.pagination-data',
@@ -75,4 +77,5 @@ var infScroll = new InfiniteScroll(elem, {
     hideNav: '.pagination',
     status: '.status-infinite',
 });
+    });
 </script>
