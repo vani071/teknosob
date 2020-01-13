@@ -1,5 +1,4 @@
 <?php
-
 /**
  * October - The PHP platform that gets back to basics.
  *
