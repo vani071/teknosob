@@ -85,15 +85,15 @@
 
 
 
-@media (min-width: 1200px){
-    /* force to mobile */
+/* @media (min-width: 1200px){
+    force to mobile
     .container{
         width:437px !important;
     }
-}
+} */
 
-@media (min-width: 767px){
+/* @media (min-width: 767px){
     .main-slider .slider-item .thumb{
         height: 300px;
     }
-}
+} */
