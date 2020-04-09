@@ -1,0 +1,15 @@
+==
+<!-- Menu -->
+<div class="horizontal-scroll" id="top">
+  <ul class="list-inline">
+    <h3>
+      {% for menu in main_menu %}
+      <li class="list-inline-item px-1 text-center">
+        <a href="{{ menu['2'] }}" class="text-decoration-none">
+          {{ menu['1']|raw }}<br/><h6>{{ menu['0'] }}</h6>
+        </a>
+      </li>
+      {% endfor %}
+    </h3>
+  </ul>
+</div>

@@ -1,0 +1,19 @@
+==
+<!-- Search Form -->
+<form class="" method="GET" action="{{ searchForm.resultPage|page }}">
+<div class="input-group mb-3">
+  <!-- Search Input -->
+  <input type="text" name="search" class="form-control border-0 background-secondary-color input-custom" placeholder ="Search" name="searchkey" aria-label="Search" style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px;" autocomplete="off" >
+  {% if searchForm.categoryFilter %}
+    <select name="cat[]" class="form-control">
+    {% for key,cat in searchForm.categories %}
+      <option value="{{ key }}">{{ cat }}</option>
+    {% endfor %}
+    </select>
+  {% endif %}
+  <!-- Search Button -->
+  <div class="input-group-append">
+    <button class="btn btn-link background-secondary-color" style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;" type="submit"><i class="fas fa-search"></i></button>
+  </div>
+</div>
+</form>

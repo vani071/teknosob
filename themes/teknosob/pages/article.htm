@@ -15,7 +15,7 @@ slug = "{{ :slug }}"
 [commentsPost]
 ==
 {% set post = blogPost.post %}
-
+<div class="container">
 <ul class="list-inline">
   <!-- Menampilkan Category -->
   <li class="list-inline-item"><h6>
@@ -31,7 +31,7 @@ slug = "{{ :slug }}"
 </ul>
 
 <!-- Post Title -->
-<h3 class="text-center py-5 px-3">{{ post.title }}</h3>
+<h3 class="text-center py-3 px-3">{{ post.title|title }}</h3>
 
 <!-- Featured Image -->
 {% if post.featured_images.count %}
@@ -39,7 +39,7 @@ slug = "{{ :slug }}"
 
         <!-- Apabila Featured Image lebih dari satu -->
         {% for image in post.featured_images %}
-                <img class="p-1 img-thumbnail"
+                <img class="col-12 col-md-6 col-lg-3 p-1 img-thumbnail"
                     data-src="{{ image.filename }}"
                     src="{{ image.path }}"
                     alt="{{ image.description|title }}" />
@@ -70,14 +70,18 @@ slug = "{{ :slug }}"
     </ul>
 {% endif %}
 
+<!-- Views Count -->
 {% set post = views.post %}
-
-
 <div class="py-1">Dilihat: {{ views }} kali</div>
 
+<!-- Social Sharing Button -->
 Bagikan artikel:
 {% partial 'social-sharing-button' %}
 
+<!-- Random Post -->
+{% partial 'random-post'  %}
+
+<!-- Comment -->
 {% set posts = commentsPost.posts %}
 
 <div class="col-xs-6" id="comments-content">
@@ -127,9 +131,6 @@ Bagikan artikel:
         </div>
     </div>
 
-
-
-
     {% endif %}
     <div class="comments">
         <ul>
@@ -138,7 +139,7 @@ Bagikan artikel:
     </div>
 </div>
 
-{% partial 'random-post'  %}
+</div>
 
 <!-- <div id="fb-root"></div>
 <script>(function(d, s, id) {

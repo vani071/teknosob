@@ -8,23 +8,31 @@ postPage = "article"
 ==
 {% set posts = blogPosts.posts %}
 
-<ul class="list-group background-primary-color">
-    {% for post in posts %}
-        <li class="list-group-item background-primary-color border-0">
-            
-            <!-- Post Image -->
-            {% for image in post.featured_images|slice(0,1) %}
-                <a class="col-3 float-left" href="{{ post.url }}">
-                    <img class="img img-thumbnail img-fluid rounded" src="{{image.path}}" alt="">
-                </a>
-            {% endfor %}
-            
-            <!-- Post Title -->
-            <h4 class="py-1"><a href="{{ post.url }}">{{ post.title|title }}</a></h4>
-            
-            <!-- Post Date -->
-            <p class="text-right py-1">{{ post.published_at|date(' d M Y') }}</p>
-            
+<!-- Random Post -->
+<ul class="list-inline text-nowrap overflow-auto my-2">
+
+  {% for post in posts %}
+
+    <li class="list-inline-item">
+    <a class="" href="{{ post.url }}">
+      <ul class="list-group list-group-horizontal-lg bg-transparent">
+        <!-- Post Image -->
+        {% for image in post.featured_images|slice(0,1) %}
+          <li class="list-group-item bg-transparent">
+            <img class="img img-thumbnail img-fluid rounded" src="{{image.path}}" alt="" style="width: 200px;"/>
+          </li>
+        {% endfor %}
+
+        <!-- Post Title -->
+        <li class="list-group-item bg-transparent">
+          <h5 class="">
+            {{ post.title|title }}
+          </h5>
         </li>
-    {% endfor %}
+      </ul>
+    </a>
+    </li>
+
+  {% endfor %}
+
 </ul>
