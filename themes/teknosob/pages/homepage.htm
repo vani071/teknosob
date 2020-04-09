@@ -21,42 +21,10 @@ postPage = "article"
 
 {% set posts = blogPosts.posts %}
 
-<ul class="list-group post-list-custom pagination-container pagination-data">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-1">
-
-    {% for post in posts %}
-      <li class="list-group-item border-0">
-        <div class="row row-cols-1 row-cols-lg-2">
-          <div class="col col-lg-3">
-            <!-- Post Image -->
-            {% for image in post.featured_images|slice(0,1) %}
-              <div class="cp-thumb" onclick="location.href = '{{ post.url }}';"><img src="{{image.path}}" alt=""></div>
-            {% endfor %}
-          </div>
-
-          <div class="col col-lg-9">
-            <!-- Post Date -->
-            <p class="info small">
-              {{ post.published_at|date(' d M Y') }}
-            </p>
-
-            <!-- Post Title -->
-            <h3><a href="{{ post.url }}">{{ post.title|title }}</a></h3>
-
-            <!-- Post Excerpt -->
-            <p class="excerpt">
-              {{ post.summary|raw }}
-            </p>
-          </div>
-        </div>
-      </li>
-
-    {% else %}
-      <li class="no-data">{{ blogPosts.noPostsMessage }}</li>
-    {% endfor %}
-
-  </div>
-</ul>
+<!-- Post List -->
+<div class="pagination-container pagination-data">
+    {% partial "post-list" %}
+</div>
 
 <ul class="list-group post-list-custom status-infinite">
     <li class="list-group-item infinite-scroll-last"></li>
