@@ -9,6 +9,7 @@ function onStart()
     $this->addCss('assets/css/input.css');
     $this->addCss('assets/css/text.css');
     $this->addCss('assets/css/background.css');
+    $this->addCss('assets/css/horizontal-scroll.css');
 
     }
 ?>
@@ -41,7 +42,7 @@ function onStart()
 <!-- </head> -->
 </head>
 <body class="background-primary-color text-primary-color">
-    <!-- <div class="container" id="top"> -->
+    <div class="" id="top">
     
         <!-- header -->
         {% partial "header" %}
@@ -55,7 +56,7 @@ function onStart()
         <!-- Scroll to top -->
         {% partial "scroll-to-top" %}
     
-    <!-- </div> -->
+    </div>
     {% framework extras %}
     {%scripts%}
 <!-- </body></html> -->

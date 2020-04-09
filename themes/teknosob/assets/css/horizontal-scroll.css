@@ -1,0 +1,8 @@
+.horizontal-scroll {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}

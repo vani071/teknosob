@@ -1,12 +1,3 @@
-.horizontal-scroll {
-    overflow: auto;
-    white-space: nowrap;
-}
-
-.horizontal-scroll::-webkit-scrollbar {
-    display: none;
-}
-
 .btn.btn-default{
     background-color:#4BCFFA;
     color:#000;
